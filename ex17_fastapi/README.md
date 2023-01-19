@@ -10,9 +10,9 @@ poetry
 > pip install poetry
 > poetry install
 
-## Inicializar servidor sem WSGI
+## Inicializar servidor uvicorn
 
-> poetry run python main.py
+> poetry run uvicorn main:app --host 0.0.0.0 --port 8080 --reload
 
 ## Inicializar servidor WSGI (apenas unix)
 

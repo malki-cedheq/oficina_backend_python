@@ -1,10 +1,9 @@
 # Oficina Backend Python Flask e FastAPI
 
-![Flask](https://flask.palletsprojects.com/en/2.2.x/_images/flask-logo.png)
-![FastAPI](https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png)
-
-<img src="https://flask.palletsprojects.com/en/2.2.x/_images/flask-logo.png" alt="Flask logo" width="128" align="center"/>
-<img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="FastAPI logo" width="128" align="center"/>
+<div>
+<img src="https://flask.palletsprojects.com/en/2.2.x/_images/flask-logo.png" alt="Flask logo" width="360" align="center"/>
+<img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="FastAPI logo" width="360" align="center"/>
+</div>
 
 ## Conteúdo
 

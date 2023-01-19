@@ -10,6 +10,10 @@ poetry
 > pip install poetry
 > poetry install
 
-## Inicializar servidor uvicorn
+## Inicializar servidor
 
 > poetry run python app.py
+
+## Inicializar servidor WSGI (unix)
+
+> gunicorn -w 4 'app:app'

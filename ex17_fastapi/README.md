@@ -10,9 +10,18 @@ poetry
 > pip install poetry
 > poetry install
 
-## Inicializar servidor uvicorn
+## Inicializar servidor sem WSGI
 
-> poetry run uvicorn app:app --reload
+> poetry run python main.py
+
+## Inicializar servidor WSGI (apenas unix)
+
+cli: gunicorn --workers=4 --bind=0.0.0.0:8080 --worker-class=uvicorn.workers.UvicornWorker main:app
+
+cada worker é executado em um processo individual
+cada bind indica o endereço de exposição do serviço
+
+> gunicorn -w 4 -b 0.0.0.0:8080 -k uvicorn.workers.UvicornWorker main:app
 
 ## Dockerização
 

@@ -10,13 +10,18 @@ poetry
 > pip install poetry
 > poetry install
 
-## Inicializar servidor
+## Inicializar servidor sem WSGI
 
 > poetry run python app.py
 
-## Inicializar servidor WSGI (unix)
+## Inicializar servidor WSGI (apenas unix)
 
-> gunicorn -w 4 'app:app'
+cli: gunicorn --workers=4 --bind=0.0.0.0:8081 'app:app'
+
+cada worker é executado em um processo individual
+cada bind indica o endereço de exposição do serviço
+
+> gunicorn -w 4 -b 0.0.0.0:8081 'app:app'
 
 ## Dockerização
 

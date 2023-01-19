@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "oficina_backend_flask_fastapi"
+version = "0.1.0"
+description = ""
+authors = ["malki-cedheq <malkicedheq@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+gunicorn = "*"
+uvicorn = "*"
+pydantic = "*"
+jinja2 = "*"
+python-dotenv = "*"
+fastapi = "*"
+asyncio = "*"
+flask = "*"
+"flask[async]" = "*"
+flask-cors = "*"
+flask_pydantic  = "*"
+flask_injector  = "*"
+pytest = "*"
+httpx = "*"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

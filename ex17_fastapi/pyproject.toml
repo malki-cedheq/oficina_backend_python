@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ex16_fastapi"
+name = "ex17_fastapi"
 version = "0.1.0"
 description = ""
 authors = ["malki-cedheq <malkicedheq@gmail.com>"]

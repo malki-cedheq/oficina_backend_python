@@ -7,7 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-flask[async] = "*"
+gunicorn = "*"
+"flask[async]" = "*"
 asyncio = "*"
 
 [build-system]

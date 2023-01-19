@@ -11,6 +11,7 @@
 2. [Requisitos](#requisitos)
 3. [Preparando o Ambiente Virtual](#ambiente_virtual)
 4. [Exemplos](#exemplos)
+
    1. [ex01 - API Mínima](#ex01)
       1. [flask](#ex01_flask)
       2. [fastapi](#ex01_fastapi)
@@ -62,6 +63,18 @@
    17. [ex17 - Dockerização](#ex17)
        1. [flask](#ex17_flask)
        2. [fastapi](#ex17_fastapi)
+
+5. [Exemplos em construção](#exemplos)
+
+   18. [ex18 - Interagindo com DB SQL](#ex18)
+       1. [flask](#ex18_flask)
+       2. [fastapi](#ex18_fastapi)
+   19. [ex19 - Interagindo com DB NoSQL](#ex19)
+       1. [flask](#ex19_flask)
+       2. [fastapi](#ex19_fastapi)
+   20. [ex20 - Padrão de Serviço](#ex20)
+       1. [flask](#ex20_flask)
+       2. [fastapi](#ex20_fastapi)
 
 ## Introdução <a name="introducao"></a>
 
@@ -219,3 +232,47 @@ Dockerização é o processo de compactação, implantação e execução de apl
 #### ex17_flask <a name="ex17_flask"></a>
 
 #### ex17_fastapi <a name="ex17_fastapi"></a>
+
+### ex18 - Interagindo com DB SQL <a name="ex18"></a>
+
+Interação com banco de dados relacional PostgreSQL através do SQLAlchemy
+
+#### ex18_flask <a name="ex18_flask"></a>
+
+#### ex18_fastapi <a name="ex18_fastapi"></a>
+
+### ex19 - Interagindo com DB NoSQL <a name="ex19"></a>
+
+Interação com banco de dados não relacional MondoDB através do SQLAlchemy
+
+#### ex19_flask <a name="ex19_flask"></a>
+
+#### ex19_fastapi <a name="ex19_fastapi"></a>
+
+### ex20 - Padrão de Serviço <a name="ex20"></a>
+
+Aplicando o Service Pattern na API.
+Exemplo de um aquisição de temperatura corporal.
+Onde cada sensor é exclusivo a um voluntário.
+
+Models:
+temperatura (MongoDB)
+sensor_id: int
+voluntario_id: int
+timestamp: datetime
+n_pacote: int
+temperatura: Array(int)
+voluntario(postgreSQL)
+voluntario_id: int
+nome: str
+cpf: str
+idade: str
+email: str
+sensor (postgreSQL)
+sensor_id: int
+nome: str
+(FK) voluntario_id: int
+
+#### ex20_flask <a name="ex20_flask"></a>
+
+#### ex20_fastapi <a name="ex20_fastapi"></a>

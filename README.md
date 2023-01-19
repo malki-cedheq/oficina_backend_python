@@ -12,36 +12,54 @@
    1. [ex01 - API Mínima](#ex01)
       1. [flask](#ex01_flask)
       2. [fastapi](#ex01_fastapi)
-   2. [ex02](#ex02)
+   2. [ex02 - Configurações](#ex02)
       1. [flask](#ex02_flask)
       2. [fastapi](#ex02_fastapi)
-   3. [ex03](#ex03)
+   3. [ex03 - Métodos HTTP](#ex03)
       1. [flask](#ex03_flask)
       2. [fastapi](#ex03_fastapi)
-   4. [ex04](#ex04)
+   4. [ex04 - Parâmetros URL](#ex04)
       1. [flask](#ex04_flask)
       2. [fastapi](#ex04_fastapi)
-   5. [ex05](#ex05)
+   5. [ex05 - Query URL](#ex05)
       1. [flask](#ex05_flask)
       2. [fastapi](#ex05_fastapi)
-   6. [ex06](#ex06)
+   6. [ex06 - Templates](#ex06)
       1. [flask](#ex06_flask)
       2. [fastapi](#ex06_fastapi)
-   7. [ex07](#ex07)
+   7. [ex07 - Static](#ex07)
       1. [flask](#ex07_flask)
       2. [fastapi](#ex07_fastapi)
-   8. [ex08](#ex08)
+   8. [ex08 - Tarefas Assíncronas](#ex08)
       1. [flask](#ex08_flask)
       2. [fastapi](#ex08_fastapi)
-   9. [ex09](#ex09)
+   9. [ex09 - Injeção de Dependências](#ex09)
       1. [flask](#ex09_flask)
       2. [fastapi](#ex09_fastapi)
-   10. [ex10](#ex10)
+   10. [ex10 - Validação de dados](#ex10)
        1. [flask](#ex10_flask)
        2. [fastapi](#ex10_fastapi)
-   11. [ex11](#ex11)
+   11. [ex11 - Serialização e Desserialização](#ex11)
        1. [flask](#ex11_flask)
        2. [fastapi](#ex11_fastapi)
+   12. [ex12 - Middleware](#ex12)
+       1. [flask](#ex12_flask)
+       2. [fastapi](#ex12_fastapi)
+   13. [ex13 - Modularização](#ex13)
+       1. [flask](#ex13_flask)
+       2. [fastapi](#ex13_fastapi)
+   14. [ex14 - Autenticação](#ex14)
+       1. [flask](#ex14_flask)
+       2. [fastapi](#ex14_fastapi)
+   15. [ex15 - CORS](#ex15)
+       1. [flask](#ex15_flask)
+       2. [fastapi](#ex15_fastapi)
+   16. [ex16 - Test Driven Development](#ex16)
+       1. [flask](#ex16_flask)
+       2. [fastapi](#ex16_fastapi)
+   17. [ex17 - Dockerização](#ex17)
+       1. [flask](#ex17_flask)
+       2. [fastapi](#ex17_fastapi)
 
 ## Introdução <a name="introducao"></a>
 
@@ -49,7 +67,7 @@ Neste repositório são apresentadas aplicação server-side em Python, simples 
 
 ## Exemplos <a name="exemplos"></a>
 
-The first paragraph text
+Nesta sessão apresenta-se resumos sobre cada exemplo.
 
 ### ex01 - API Mínima <a name="ex01"></a>
 
@@ -123,13 +141,13 @@ A injeção de dependências é uma técnica onde um objeto (ou método estátic
 
 #### ex09_fastapi <a name="ex09_fastapi"></a>
 
-### ex11 - Validação de dados <a name="ex11"></a>
+### ex10 - Validação de dados <a name="ex10"></a>
 
 A validação de dados é importante para verificar os dados recebidos numa requisição, e se estes atentem os requisitos especificados nos modelos.
 
-#### ex11_flask <a name="ex11_flask"></a>
+#### ex10_flask <a name="ex10_flask"></a>
 
-#### ex11_fastapi <a name="ex11_fastapi"></a>
+#### ex10_fastapi <a name="ex10_fastapi"></a>
 
 ### ex11 - Serialização e Desserialização <a name="ex11"></a>
 
@@ -138,3 +156,53 @@ A serialização de dados é o processo de conversão de dados estruturados para
 #### ex11_flask <a name="ex11_flask"></a>
 
 #### ex11_fastapi <a name="ex11_fastapi"></a>
+
+### ex12 - Middleware <a name="ex12"></a>
+
+Middleware são usados para aplicar uma lógica a cada requisição antes de ser processada pelo View.
+
+#### ex12_flask <a name="ex12_flask"></a>
+
+#### ex12_fastapi <a name="ex12_fastapi"></a>
+
+### ex13 - Modularização <a name="ex13"></a>
+
+Decomposição da aplicação em models, schemas, routers, services, views, templates, etc
+
+#### ex13_flask <a name="ex14_flask"></a>
+
+#### ex13_fastapi <a name="ex14_fastapi"></a>
+
+### ex14 - Autenticação <a name="ex14"></a>
+
+Neste exemplo é abordada a autenticação do tipo HTTP, entretanto existem diversas outras formas de autenticação.
+Como JWT, Form, OAuth, etc.
+
+#### ex14_flask <a name="ex14_flask"></a>
+
+#### ex14_fastapi <a name="ex14_fastapi"></a>
+
+### ex15 - CORS <a name="ex15"></a>
+
+O middleware CORS (Cross-Origin Resource Sharing) verifica se as solicitações vêm ou não de origens permitidas.
+
+#### ex15_flask <a name="ex15_flask"></a>
+
+#### ex15_fastapi <a name="ex15_fastapi"></a>
+
+### ex16 - Test Driven Development <a name="ex16"></a>
+
+TDD se baseia em pequenos ciclos de repetições, onde para cada funcionalidade do sistema um teste é criado antes.
+Neste exemplo utiliza-se a ferramenta pytest.
+
+#### ex16_flask <a name="ex16_flask"></a>
+
+#### ex16_fastapi <a name="ex16_fastapi"></a>
+
+### ex17 - Dockerização <a name="ex17"></a>
+
+Dockerização é o processo de compactação, implantação e execução de aplicativos usando contêineres do Docker. O Docker é uma ferramenta de código aberto que envia seu aplicativo com todas as funcionalidades necessárias como um pacote.
+
+#### ex17_flask <a name="ex17_flask"></a>
+
+#### ex17_fastapi <a name="ex17_fastapi"></a>

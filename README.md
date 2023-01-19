@@ -1,4 +1,4 @@
-# Oficina Backend Flask e FastAPI
+# Oficina Backend Python Flask e FastAPI
 
 ## Conteúdo
 
@@ -13,7 +13,7 @@
 
 ## Introdução <a name="introducao"></a>
 
-Neste repositório são apresentadas aplicação server-side, simples a fim de auxiliar a compreensão sobre os diversos aspectos de uma API contruida com as bibliotecas [FLASK](https://flask.palletsprojects.com/en/2.2.x/) ou [FASTAPI](https://fastapi.tiangolo.com/). Cada exemplo é abordado em FLASK, diretórios "exN_flask" e em FASTAPI, diretórios "exN_fastapi".
+Neste repositório são apresentadas aplicação server-side em Python, simples a fim de auxiliar a compreensão sobre os diversos aspectos de uma API contruida com as bibliotecas [FLASK](https://flask.palletsprojects.com/en/2.2.x/) ou [FASTAPI](https://fastapi.tiangolo.com/). Cada exemplo é abordado em FLASK, diretórios "exN_flask" e em FASTAPI, diretórios "exN_fastapi".
 
 ## Exemplos <a name="exemplos"></a>
 

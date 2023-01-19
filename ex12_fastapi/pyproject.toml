@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ex12_fastapi"
+version = "0.1.0"
+description = ""
+authors = ["malki-cedheq <malkicedheq@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+uvicorn = "*"
+fastapi = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

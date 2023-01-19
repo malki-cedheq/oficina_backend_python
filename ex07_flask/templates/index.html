@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html class="h-100" lang="pt-br"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Template, usando Bootstrap">
+    <meta name="author" content="Malki-çedheq">
+
+    <link href="{{ url_for('static', filename='/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <title>Template, usando Bootstrap</title>
+
+  </head>
+
+  <body class="d-flex flex-column h-100">
+
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+      <div class="container">       
+        <h1 class="mt-5">{{ page_title }}</h1>
+        <span class="text-muted">Main</span>
+        <p class="lead">Parágrafo 1.</p>
+        <p>Utilizando 
+            <a href="https://getbootstrap.com/docs/5.2/getting-started/introduction/">Bootstrap 5.2</a> 
+        </p>
+
+        <div class="card text-bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Lorem Ipsum</h5>
+              <p class="card-text" align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut dui sed orci efficitur fringilla. Nulla ut est non lorem varius efficitur luctus ac lorem. Curabitur tempor rhoncus tempor. Nulla semper felis justo, sed efficitur dui consectetur eu. Fusce vel fermentum risus. Mauris et quam eget lectus interdum bibendum vel quis tellus. Praesent in eros augue. Integer sodales augue ut felis varius, sed commodo dui dignissim. Suspendisse mi sapien, auctor id metus in, blandit mollis lorem. Nulla facilisi. </p>
+            </div>
+          </div>  
+
+      </div>
+      
+    </main>
+
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <span class="text-muted">Footer.</span>
+      </div>
+    </footer>
+  </body>
+</html>

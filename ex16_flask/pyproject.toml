@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ex15_flask"
+name = "ex16_flask"
 version = "0.1.0"
 description = ""
 authors = ["malki-cedheq <malkicedheq@gmail.com>"]

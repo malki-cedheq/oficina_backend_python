@@ -8,7 +8,9 @@
 ## Conteúdo
 
 1. [Introdução](#introducao)
-2. [Exemplos](#exemplos)
+2. [Requisitos](#requisitos)
+3. [Preparando o Ambiente Virtual](#ambiente_virtual)
+4. [Exemplos](#exemplos)
    1. [ex01 - API Mínima](#ex01)
       1. [flask](#ex01_flask)
       2. [fastapi](#ex01_fastapi)
@@ -64,6 +66,17 @@
 ## Introdução <a name="introducao"></a>
 
 Neste repositório são apresentadas aplicação server-side em Python, simples a fim de auxiliar a compreensão sobre os diversos aspectos de uma API contruida com as bibliotecas [FLASK](https://flask.palletsprojects.com/en/2.2.x/) ou [FASTAPI](https://fastapi.tiangolo.com/). Cada exemplo é abordado em FLASK, diretórios "exN_flask" e em FASTAPI, diretórios "exN_fastapi".
+
+## Requisitos <a name="requisitos"></a>
+
+> Python +3.10
+> Docker
+
+## Preparando Ambiente Virtual <a name="ambiente_virtual"></a>
+
+> pip3 install --upgrade pip
+> pip3 install poetry
+> poetry install
 
 ## Exemplos <a name="exemplos"></a>
 

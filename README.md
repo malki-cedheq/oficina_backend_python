@@ -26,3 +26,11 @@ API Mínima
 #### ex01_flask <a name="ex01_flask"></a>
 
 #### ex01_fastapi <a name="ex01_fastapi"></a>
+
+### ex02 - Configurações <a name="ex02"></a>
+
+Trabalhando com Environment Variables, Config File, Instance Folder, Classes and inheritance
+
+#### ex02_flask <a name="ex02_flask"></a>
+
+#### ex02_fastapi <a name="ex02_fastapi"></a>

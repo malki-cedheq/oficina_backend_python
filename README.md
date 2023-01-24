@@ -10,7 +10,8 @@
 1. [Introdução](#introducao)
 2. [Requisitos](#requisitos)
 3. [Preparando o Ambiente Virtual](#ambiente_virtual)
-4. [Exemplos](#exemplos)
+4. [Executando Exemplos](#executando_exemplos)
+5. [Exemplos](#exemplos)
 
    1. [ex01 - API Mínima](#ex01)
       1. [flask](#ex01_flask)
@@ -64,7 +65,7 @@
        1. [flask](#ex17_flask)
        2. [fastapi](#ex17_fastapi)
 
-5. [Exemplos em construção](#exemplos)
+6. [Exemplos em construção](#exemplos)
 
    18. [ex18 - Interagindo com DB SQL](#ex18)
        1. [flask](#ex18_flask)
@@ -91,9 +92,25 @@ Neste repositório são apresentadas aplicação server-side em Python, simples 
 > pip3 install poetry
 > poetry install
 
-## Executando exemplos <a name="executando_exemplos"></a>
+## Executando Exemplos <a name="executando_exemplos"></a>
 
-> poetry run python3 ex01_fastapi/main.py
+### Usando Poetry
+
+1. FastAPI
+
+> poetry run uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+
+2. Flask
+   > poetry run python app.py
+
+### Usando Gunicorn (Python WSGI HTTP Server for UNIX)
+
+1. FastAPI
+
+> poetry run gunicorn -w 4 -b 0.0.0.0:8080 -k uvicorn.workers.UvicornWorker main:app
+
+2. Flask
+   > poetry run gunicorn -w 4 -b 0.0.0.0:8081 'app:app'
 
 ## Exemplos <a name="exemplos"></a>
 

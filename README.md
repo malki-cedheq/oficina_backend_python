@@ -91,6 +91,10 @@ Neste repositório são apresentadas aplicação server-side em Python, simples 
 > pip3 install poetry
 > poetry install
 
+## Executando exemplos <a name="executando_exemplos"></a>
+
+> poetry run python3 ex01_fastapi/main.py
+
 ## Exemplos <a name="exemplos"></a>
 
 Nesta sessão apresenta-se resumos sobre cada exemplo.

@@ -12,7 +12,7 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    return {"message": "Hellow, World"}
+    return {"message": "Hello, World"}
 
 
 if __name__ == "__main__":

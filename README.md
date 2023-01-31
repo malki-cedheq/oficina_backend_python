@@ -64,18 +64,21 @@
    17. [ex17 - Dockerização](#ex17)
        1. [flask](#ex17_flask)
        2. [fastapi](#ex17_fastapi)
+   18. [ex17 - Dockerização](#ex18)
+       1. [flask](#ex18_flask)
+       2. [fastapi](#ex18_fastapi)
 
 6. [Exemplos em construção](#exemplos)
 
-   18. [ex18 - Interagindo com DB SQL](#ex18)
-       1. [flask](#ex18_flask)
-       2. [fastapi](#ex18_fastapi)
-   19. [ex19 - Interagindo com DB NoSQL](#ex19)
+   19. [ex19 - Interagindo com DB SQL](#ex19)
        1. [flask](#ex19_flask)
        2. [fastapi](#ex19_fastapi)
-   20. [ex20 - Padrão de Serviço](#ex20)
+   20. [ex20 - Interagindo com DB NoSQL](#ex20)
        1. [flask](#ex20_flask)
        2. [fastapi](#ex20_fastapi)
+   21. [ex21 - Padrão de Serviço](#ex21)
+       1. [flask](#ex21_flask)
+       2. [fastapi](#ex21_fastapi)
 
 ## Introdução <a name="introducao"></a>
 
@@ -256,21 +259,29 @@ Dockerização é o processo de compactação, implantação e execução de apl
 
 ### ex18 - Interagindo com DB SQL <a name="ex18"></a>
 
-Interação com banco de dados relacional PostgreSQL através do SQLAlchemy
+Documentação da API utilizando Swagger UI
 
 #### ex18_flask <a name="ex18_flask"></a>
 
 #### ex18_fastapi <a name="ex18_fastapi"></a>
 
-### ex19 - Interagindo com DB NoSQL <a name="ex19"></a>
+### ex19 - Interagindo com DB SQL <a name="ex19"></a>
 
-Interação com banco de dados não relacional MondoDB através do SQLAlchemy
+Interação com banco de dados relacional PostgreSQL através do SQLAlchemy
 
 #### ex19_flask <a name="ex19_flask"></a>
 
 #### ex19_fastapi <a name="ex19_fastapi"></a>
 
-### ex20 - Padrão de Serviço <a name="ex20"></a>
+### ex20 - Interagindo com DB NoSQL <a name="ex20"></a>
+
+Interação com banco de dados não relacional MondoDB através do SQLAlchemy
+
+#### ex20_flask <a name="ex20_flask"></a>
+
+#### ex20_fastapi <a name="ex20_fastapi"></a>
+
+### ex21 - Padrão de Serviço <a name="ex21"></a>
 
 Aplicando o Service Pattern na API.
 Exemplo de um aquisição de temperatura corporal.
@@ -294,6 +305,6 @@ sensor_id: int
 nome: str
 (FK) voluntario_id: int
 
-#### ex20_flask <a name="ex20_flask"></a>
+#### ex21_flask <a name="ex21_flask"></a>
 
-#### ex20_fastapi <a name="ex20_fastapi"></a>
+#### ex21_fastapi <a name="ex21_fastapi"></a>

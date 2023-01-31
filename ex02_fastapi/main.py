@@ -13,21 +13,25 @@ from fastapi import FastAPI
 from pydantic import BaseSettings
 
 
-class Settings(BaseSettings):
+class PedrinhoPai(BaseSettings):
     message: str
+    nome: str
 
     class Config:
         env_file = "./ex02_fastapi/.env"
 
 
-settings = Settings()
+pedrinhoFilho = PedrinhoPai()
 
 app = FastAPI()
 
 
 @app.get("/settings")
 def get_settings():
-    return {"message": settings.message}
+    return {
+        "message": pedrinhoFilho.message,
+        "nome": pedrinhoFilho.nome
+    }
 
 
 if __name__ == "__main__":

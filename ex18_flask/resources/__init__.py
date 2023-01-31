@@ -5,7 +5,7 @@ from flask_restx import Api, apidoc
 from .item import api as ns1
 
 api = Api(title='API Restful', version='1.0',
-          description='API Restful com flask-restx',)
+          description='API Restful com flask-restx', doc='/doc/')
 
 
 @api.documentation

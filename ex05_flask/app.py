@@ -8,7 +8,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 
-@app.route("/item/", methods=["GET"])  # /item?item_name=abajur
+@app.route("/item", methods=["GET"])  # /item?item_name=abajur
 def read():
     item_name = request.args.get("item_name")
     return {"item_name": item_name}

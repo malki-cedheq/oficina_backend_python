@@ -9,17 +9,15 @@ from pydantic import BaseModel
 app = FastAPI()
 
 
-class Request(BaseModel):
-    ''' handles deserialization '''
-    username: str
-    email: str
-    password: str
-
-
 class Response(BaseModel):
     ''' handles object serialization '''
     username: str
     email: str
+
+
+class Request(Response):
+    ''' handles deserialization '''
+    password: str
 
 
 @app.post("/login", response_model=Response)

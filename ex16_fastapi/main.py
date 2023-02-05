@@ -2,7 +2,6 @@
 '''
 TDD
 Test Driven Development
-***EM CONSTRUÇÃO***
 '''
 import uvicorn
 from fastapi import FastAPI

@@ -5,7 +5,7 @@ Test Driven Development
 '''
 import uvicorn
 from fastapi import FastAPI
-from routers.index_router import index_router
+from .routers.index_router import index_router
 
 app = FastAPI()
 

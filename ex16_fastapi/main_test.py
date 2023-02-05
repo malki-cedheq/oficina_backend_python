@@ -20,4 +20,4 @@ def test_index():
 def test_login():
     '''Teste Negativo (não existe endpoint /login'''
     response = client.get("/login")
-    assert response.status_code == 403
+    assert response.status_code == 404

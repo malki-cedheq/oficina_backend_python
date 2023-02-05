@@ -26,8 +26,8 @@ def get(query: QueryModel):
 # request body {"username": "usuario","password": "senha"}
 @app.route("/login", methods=["POST"])
 @validate()
-def post(query: QueryModel):
-    if query.username == "usuario" and query.password == "senha":
+def post(body: QueryModel):
+    if body.username == "usuario" and body.password == "senha":
         return {"message": "success"}
     return {"message": "Authentication Failed"}
 

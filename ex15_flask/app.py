@@ -8,7 +8,7 @@ from flask_cors import CORS
 from routers.index_router import index_router
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=['*'])
 app.register_blueprint(index_router)
 
 if __name__ == "__main__":

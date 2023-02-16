@@ -1,4 +1,4 @@
-# main.py
+# listas.py
 '''
 Tipo de dados: List
 Descrição: Um objeto tipo List é uma coleção ordenada (possui índice), mutável e permite duplicatas.

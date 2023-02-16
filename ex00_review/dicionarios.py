@@ -1,6 +1,11 @@
-# main.py
+# dicionarios.py
 '''
-Tipo de dados: List
+Tipo de dados: Dict
+
+Os dicionários são usados para armazenar valores de dados em pares 'chave':'valor'.
+Um dicionário é uma coleção que é ordenada*, modificável e não permite duplicatas.
+A partir da versão 3.7 do Python, os dicionários são ordenados (indexados). 
+
 
 Imutável é quando nenhuma mudança é possível ao longo do tempo. 
 Em Python, diz-se imutável se o valor de um objeto não pode ser alterado ao longo do tempo.

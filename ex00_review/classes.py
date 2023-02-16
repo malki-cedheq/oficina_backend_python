@@ -1,15 +1,14 @@
+# classes.py
+
 from datetime import datetime
 
 
 class Pessoa(object):
-    nome: str
-    data_nascimento: str
-
-    def __init__(self,  *args):
+    def __init__(self,  *args) -> None:
         self.nome = args[0]
         self.data_nascimento = args[1]
 
-    def __call__(self):
+    def __call__(self) -> None:
         fmt = '<Pessoa nome: {}, data de nascimento: {}>'
         print(fmt.format(self.nome, self.data_nascimento))
 
@@ -17,27 +16,36 @@ class Pessoa(object):
         fmt = '<Pessoa Nome: {}, Data de nascimento: {}>'
         return fmt.format(self.nome, self.data_nascimento)
 
-    def idade(self):
+    def idade(self) -> int:
         data = datetime.strptime(self.data_nascimento, '%m/%d/%Y')
         return int((datetime.today() - data).days/365)
 
 
 class Aluno(Pessoa):
-    curso: str
-    periodo: str
+    instituicao = 'UFPE'
 
-    def __init__(self,  *args):
+    def __init__(self,  *args) -> None:
         Pessoa.__init__(self, args[0], args[1])
         self.curso = args[2]
         self.periodo = args[3]
 
-    def __call__(self):
-        fmt = '<Aluno Nome: {}, Data de nascimento: {}, Curso: {}, Período: {}>'
-        print(fmt.format(self.nome, self.data_nascimento, self.curso, self.periodo))
+    def __call__(self) -> None:
+        fmt = '<Aluno Nome: {}, Data de nascimento: {}, Curso: {}, Período: {}, Instituição: {}>'
+        print(fmt.format(self.nome, self.data_nascimento,
+              self.curso, self.periodo, Aluno.instituicao))
 
     def __repr__(self) -> str:
-        fmt = '<Aluno Nome: {}, Data de nascimento: {}, Curso: {}, Período: {}>'
-        return fmt.format(self.nome, self.data_nascimento, self.curso, self.periodo)
+        fmt = '<Aluno Nome: {}, Data de nascimento: {}, Curso: {}, Período: {}, Instituição: {}>'
+        return fmt.format(self.nome, self.data_nascimento, self.curso, self.periodo, Aluno.instituicao)
+
+    def up_periodo(self, arg) -> str:
+        self.periodo = arg
+        return ('Novo período {}'.format(self.periodo))
+
+    @classmethod
+    def up_instituicao(cls, arg) -> str:
+        cls.instituicao = arg
+        return ('Nova instituição {}'.format(cls.instituicao))
 
 
 # Classe Pai (parent)
@@ -52,3 +60,7 @@ aluno = Aluno('José Maria', '01/02/1980',
 aluno()  # call
 print(aluno)  # representation
 print(aluno.idade())  # class function
+print(Aluno.up_instituicao('Universidade Federal de Pernambuco'))
+aluno()
+aluno.up_periodo(10)
+print(aluno)

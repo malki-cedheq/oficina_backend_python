@@ -1,9 +1,13 @@
-# main.py
+# conjuntos.py
 '''
 Tipo de dados: Set
 Descrição: 
     Um objeto tipo Set é uma coleção não-ordenada (não possui índice), mutável e não permite duplicatas.
     Não é permitido modificar um valor porém pode-se remover e adicionar valores.
+
+Os conjuntos são usados para armazenar vários itens em uma única variável.
+Set é um dos 4 tipos de dados embutidos em Python usados para armazenar coleções de dados, os outros 3 são List, Tuple e Dictionary, todos com diferentes qualidades e uso.
+Um conjunto é uma coleção não ordenada, imutável* e não indexada.
 
 Mutável é quando algo tem a capacidade de mudar. 
 Em Python, ‘mutável’ é a capacidade dos objetos de mudar seus valores. 

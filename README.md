@@ -13,6 +13,15 @@
 4. [Executando Exemplos](#executando_exemplos)
 5. [Exemplos](#exemplos)
 
+   0. [ex00 - API Mínima](#ex00)
+
+      1. [tuplas](#ex00_review_tuplas)
+      2. [listas](#ex00_review_listas)
+      3. [dicionarios](#ex00_review_dicionarios)
+      4. [conjuntos](#ex00_review_conjuntos)
+      5. [classes](#ex00_review_classes)
+      <!-- 7. [decoradores](#ex00_review_decoradores) -->
+
    1. [ex01 - API Mínima](#ex01)
       1. [flask](#ex01_flask)
       2. [fastapi](#ex01_fastapi)
@@ -118,6 +127,18 @@ Neste repositório são apresentadas aplicação server-side em Python, simples 
 ## Exemplos <a name="exemplos"></a>
 
 Nesta sessão apresenta-se resumos sobre cada exemplo.
+
+### ex00 - Revisão de Python <a name="ex00"></a>
+
+#### tuplas <a name="ex00_review_tuplas"></a>
+
+#### listas <a name="ex00_review_listas"></a>
+
+#### dicionarios <a name="ex00_review_dicionarios"></a>
+
+#### conjuntos <a name="ex00_review_conjuntos"></a>
+
+#### classes <a name="ex00_review_classes"></a>
 
 ### ex01 - API Mínima <a name="ex01"></a>
 

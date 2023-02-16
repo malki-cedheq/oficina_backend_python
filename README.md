@@ -13,7 +13,7 @@
 4. [Executando Exemplos](#executando_exemplos)
 5. [Exemplos](#exemplos)
 
-   0. [ex00 - API Mínima](#ex00)
+   0. [ex00 - Revisão Python](#ex00)
 
       1. [tuplas](#ex00_review_tuplas)
       2. [listas](#ex00_review_listas)

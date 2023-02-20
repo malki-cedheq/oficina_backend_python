@@ -23,4 +23,3 @@ class Variables(object):
     APP_HOST = os.environ.get('APP_HOST')
     APP_PORT = os.environ.get('APP_PORT')
     APP_URI = f'postgresql+psycopg2://{DB_OWNER}:{DB_PASS}@{DB_HOST}/{DB_DATABASE}'
-    APP_SECRET_KEY = os.environ.get('APP_SECRET_KEY')

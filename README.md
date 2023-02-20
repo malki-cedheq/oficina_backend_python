@@ -76,12 +76,10 @@
    18. [ex18 - Documentação](#ex18)
        1. [flask](#ex18_flask)
        2. [fastapi](#ex18_fastapi)
-
-6. [Exemplos em construção](#exemplos)
-
    19. [ex19 - Interagindo com DB SQL](#ex19)
        1. [flask](#ex19_flask)
        2. [fastapi](#ex19_fastapi)
+6. [Exemplos em construção](#exemplos)
    20. [ex20 - Interagindo com DB NoSQL](#ex20)
        1. [flask](#ex20_flask)
        2. [fastapi](#ex20_fastapi)

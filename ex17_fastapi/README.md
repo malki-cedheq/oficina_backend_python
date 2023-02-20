@@ -34,6 +34,6 @@ docker build --tag ex17_fastapi-docker .
 ### criando e executando o container
 
 ```
-docker create --name ex17_fastapi-container -p 8081:8081 ex17_fastapi-docker
+docker create --name ex17_fastapi-container -p 8080:8080 ex17_fastapi-docker
 docker start -i ex17_fastapi-container
 ```

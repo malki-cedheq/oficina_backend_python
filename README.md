@@ -73,7 +73,7 @@
    17. [ex17 - Dockerização](#ex17)
        1. [flask](#ex17_flask)
        2. [fastapi](#ex17_fastapi)
-   18. [ex17 - Dockerização](#ex18)
+   18. [ex18 - Documentação](#ex18)
        1. [flask](#ex18_flask)
        2. [fastapi](#ex18_fastapi)
 

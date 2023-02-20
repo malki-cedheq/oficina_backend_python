@@ -16,14 +16,14 @@ from flask import Flask
 load_dotenv()  # 1º carrega .env do diretório local
 
 
-class PedrinhoPai(object):
+class Setting(object):
     # uso de variável ambiente
     MESSAGE = os.environ.get("MESSAGE")
     NOME = os.environ.get("NOME")
 
 
 app = Flask(__name__)
-app.config.from_object(PedrinhoPai)
+app.config.from_object(Setting)
 
 
 @app.route("/settings")

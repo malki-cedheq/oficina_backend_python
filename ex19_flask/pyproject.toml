@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "oficina_backend_flask_fastapi"
+name = "ex19_flask"
 version = "0.1.0"
 description = ""
 authors = ["malki-cedheq <malkicedheq@gmail.com>"]
@@ -7,20 +7,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-gunicorn = "*"
-uvicorn = "*"
-pydantic = "*"
-jinja2 = "*"
-python-dotenv = "*"
-fastapi = "*"
-asyncio = "*"
-flask = {extras = ["async"], version = "^2.2.2"}
-flask-cors = "*"
-flask_pydantic  = "*"
-flask_injector  = "*"
-pytest = "*"
-httpx = "*"
-flask-restx = "*"
+python-dotenv = "0.21.1"
+flask = "2.2.3"
+flask-restx = "1.0.6"
 flask-sqlalchemy = "3.0.3"
 psycopg2-binary = "2.9.5"
 flask-marshmallow = "0.14.0"
@@ -29,7 +18,6 @@ flask-migrate = "4.0.4"
 yagmail = "0.15.293"
 Flask-Login = "0.6.2"
 Bootstrap-Flask = "2.1.0"
-
 
 
 [build-system]

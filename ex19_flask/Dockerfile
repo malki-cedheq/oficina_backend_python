@@ -1,6 +1,6 @@
 #syntax=dockerdockerfile:1
 FROM python:3.10-slim-buster
-WORKDIR /ex18_flask-docker
+WORKDIR /ex19_flask-docker
 
 EXPOSE 8081
 

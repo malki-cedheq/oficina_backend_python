@@ -3,7 +3,7 @@ Arquivo: resouces.usuario.py
 Descrição: Definição dos endpoints para o recurso usuário
 Autores: Malki-çedheq Benjamim,
 Criado em: 25/08/2022
-Atualizado em: 25/08/2022
+Atualizado em: 19/02/2022
 '''
 from flask import Blueprint, flash, request
 from flask_restx import Api, Resource, reqparse

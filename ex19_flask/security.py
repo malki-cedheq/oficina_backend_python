@@ -3,7 +3,7 @@ Arquivo: security.py
 Descrição: Funções auxiliares de segurança
 Autores: Malki-çedheq Benjamim,
 Criado em: 25/08/2022
-Atualizado em: 25/08/2022
+Atualizado em: 19/02/2022
 '''
 from functools import wraps  # necessário para decorador personalizado
 from flask_login import current_user

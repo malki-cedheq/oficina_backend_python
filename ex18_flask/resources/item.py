@@ -24,11 +24,6 @@ class ItemResource(Resource):
             return {"method": "GET", "message": "{} encontrado!".format(item_id)}
         api.abort(404, "{} não existe".format(item_id))
 
-    @api.doc('create')
-    @api.response(201, 'Created')
-    def post(self):
-        return {"method": "POST", "message": "Criado com sucesso!"}
-
     @api.doc('update por item_id', parser=parser)
     def put(self, item_id):
         if item_id == 1:
@@ -40,6 +35,14 @@ class ItemResource(Resource):
         if item_id == 1:
             return {"method": "DELETE", "message": f"{item_id} excluido com sucesso!"}
         api.abort(404, "{} não existe".format(item_id))
+
+
+@api.route('/item')
+class ItemRegisterResource(Resource):
+    @api.doc('create')
+    @api.response(201, 'Created')
+    def post(self):
+        return {"method": "POST", "message": "Criado com sucesso!"}
 
 
 @api.route('/items')

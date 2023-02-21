@@ -17,7 +17,6 @@ marshmallow-sqlalchemy = "0.28.1"
 flask-migrate = "4.0.4"
 yagmail = "0.15.293"
 Flask-Login = "0.6.2"
-Bootstrap-Flask = "2.1.0"
 pymongo = "*"
 
 

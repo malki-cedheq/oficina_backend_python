@@ -24,8 +24,6 @@ app.config.from_object(Variables)
 
 app.wsgi_app = ProxyFix(app.wsgi_app)
 
-bootstrap = Bootstrap5(app)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = app.config['APP_URI']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # propaga erros de dependências para a aplicação

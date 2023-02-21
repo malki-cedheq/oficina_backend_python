@@ -5,6 +5,7 @@ Autores: Malki-çedheq Benjamim,
 Criado em: 27/07/2022
 Atualizado em: 19/02/2023
 '''
+import uuid
 from flask import Flask
 from variables import Variables
 from flask_login import LoginManager
@@ -21,17 +22,17 @@ from services.usuario import Usuario as UsuarioService
 app = Flask(__name__)
 
 app.config.from_object(Variables)
-
-app.wsgi_app = ProxyFix(app.wsgi_app)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = app.config['APP_URI']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = str(uuid.uuid4())
 # propaga erros de dependências para a aplicação
 app.config['PROPAGATE_EXCEPTIONS'] = True
 # desabilita auto ordenação das respostas JSON
 app.config['JSON_SORT_KEYS'] = False
 # habilita documentação
 app.config.SWAGGER_SUPPORTED_SUBMIT_METHODS = ["get", "post", "put", "delete"]
+
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 # Inicialização do banco, esquemas, migração
 initialize_db(app)

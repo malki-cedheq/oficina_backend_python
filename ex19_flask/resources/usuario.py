@@ -48,6 +48,17 @@ class UserList(Resource):
         return NOT_FOUND_ERROR
 
 
+parser_user_register = reqparse.RequestParser()
+parser_user_register.add_argument('nome', type=str, required=True,
+                                  help='Deve informar o nome', location='json')
+parser_user_register.add_argument('email', type=str, required=True,
+                                  help='Deve informar o email', location='json')
+parser_user_register.add_argument('senha', type=str, required=True,
+                                  help='Deve informar o senha', location='json')
+parser_user_register.add_argument('nivel_acesso', type=int, required=True,
+                                  help='Deve informar o nivel_acesso', location='json')
+
+
 @user_ns.route('/usuario', endpoint='user_register')
 @user_ns.doc(responses={
     201: 'Created',
@@ -57,21 +68,11 @@ class UserList(Resource):
     500: 'Internal Server Error'
 })
 class UserRegister(Resource):
-    # coleta os dados da requisição
-    parser = reqparse.RequestParser()  # usando flask-restx
-    parser.add_argument('nome', type=str, required=True,
-                        help='Deve informar o nome', location='json')
-    parser.add_argument('email', type=str, required=True,
-                        help='Deve informar o email', location='json')
-    parser.add_argument('senha', type=str, required=True,
-                        help='Deve informar o senha', location='json')
-    parser.add_argument('nivel_acesso', type=int, required=True,
-                        help='Deve informar o nivel_acesso', location='json')
-    parser.add_argument('ativo', type=bool, required=True,
-                        help='Deve informar o email', location='json')
+    '''
+        Recurso para a criação de novos registros
+    '''
 
-    @user_ns.doc('Cadastra um novo usuário', parser=parser)
-    @user_ns.expect(parser)
+    @user_ns.doc('Cadastra um novo usuário', parser=parser_user_register)
     # @login_required
     # @privilege_required(acess_level=0)
     def post(self):
@@ -98,17 +99,20 @@ class UserRegister(Resource):
 
         # Valida e desserializa o request_data
         try:
+            # adiciona ativo=false no cadastro
+            request_data['ativo'] = bool(False)
             usuario_valido = usuario_schema.load(request_data)
         except ValidationError as error:
             return {"error": f"{error.messages}"}, 422
 
         # Grava o registro no db
         try:
+            # Por padrão os usuários tem acesso bloqueado
+            # garante ativo=false no cadastro
+            usuario_valido.ativo = bool(False)
             # Criptografa a senha antes de salvar o registro
             usuario_valido.senha = generate_password_hash(
                 usuario_valido.senha, method='sha256')
-            # Por padrão os usuários tem acesso bloqueado
-            usuario_valido.ativo = bool(False)
             UsuarioService.save_to_db(usuario_valido)
 
             link = "https://www.google.com.br"  # aqui deve constar o link da plataforma
@@ -117,6 +121,19 @@ class UserRegister(Resource):
             return usuario_schema.dump(usuario_valido), 201
         except InternalServerError:
             return INTERNAL_SERVER_ERROR
+
+
+parser_user = reqparse.RequestParser()
+parser_user.add_argument('nome', type=str, required=False,
+                         help='Deve informar o nome', location='json')
+parser_user.add_argument('email', type=str, required=False,
+                         help='Deve informar o email', location='json')
+parser_user.add_argument('senha', type=str, required=False,
+                         help='Deve informar o senha', location='json')
+parser_user.add_argument('nivel_acesso', type=int, required=False,
+                         help='Deve informar o nivel_acesso', location='json')
+parser_user.add_argument('ativo', type=bool, required=False,
+                         help='Deve informar o email', location='json')
 
 
 @user_ns.route('/usuario/<int:id_usuario>', endpoint='user_ops')
@@ -129,19 +146,19 @@ class UserRegister(Resource):
     500: 'Internal Server Error'
 })
 class User(Resource):
-    parser_id = reqparse.RequestParser()
-    parser_id.add_argument('id_usuario', type=int, required=True,
-                           help='Deve informar o id_usuario')
+    '''
+    Recursos para recuperação, atualização e exclusão de registros a partir do id
+    '''
 
-    @user_ns.doc('Recupera usuário através do id_usuario', parser=parser_id)
-    @user_ns.expect(parser_id)
+    @user_ns.doc('Recupera usuário através do id_usuario')
+    @user_ns.expect('id_usuario')
     @login_required
     def get(self, id_usuario: int):
         '''
         requisição get
         retorna o registro de um usuario espeficidado pelo id_usuario
         '''
-        if (current_user.id_usuario == id_usuario or current_user.nivel_acesso == '0'):
+        if (current_user.id_usuario == id_usuario or current_user.nivel_acesso == 0):
             usuario = UsuarioService.find_by_id(id_usuario)
             if usuario:
                 return usuario_schema.dump(usuario), 200
@@ -150,22 +167,8 @@ class User(Resource):
         return UNAUTHORIZED
 
     # coleta os dados da requisição
-    parser_put = reqparse.RequestParser()  # usando flask-restx
-    parser_put.add_argument('id_usuario', type=str, required=True,
-                            help='Deve informar o id_usuario', location='query')
-    parser_put.add_argument('nome', type=str, required=False,
-                            help='Deve informar o nome', location='json')
-    parser_put.add_argument('email', type=str, required=False,
-                            help='Deve informar o email', location='json')
-    parser_put.add_argument('senha', type=str, required=False,
-                            help='Deve informar o senha', location='json')
-    parser_put.add_argument('nivel_acesso', type=int, required=False,
-                            help='Deve informar o nivel_acesso', location='json')
-    parser_put.add_argument('ativo', type=bool, required=False,
-                            help='Deve informar o email', location='json')
-
-    @user_ns.doc('Modifica um usuário através do id_usuario', parser=parser_put)
-    @user_ns.expect(parser_put)
+    @user_ns.doc('Modifica um usuário através do id_usuario', parser=parser_user)
+    @user_ns.expect('id_usuario')
     @login_required
     @privilege_required(acess_level=0)
     def put(self, id_usuario: int):
@@ -201,8 +204,8 @@ class User(Resource):
 
         return NOT_FOUND_ERROR
 
-    @user_ns.doc('Remove um usuário através do id_usuario', parser=parser_id)
-    @user_ns.expect(parser_id)
+    @user_ns.doc('Remove um usuário através do id_usuario')
+    @user_ns.expect('id_usuario')
     @login_required
     @privilege_required(acess_level=0)
     def delete(self, id_usuario: int):
@@ -223,10 +226,8 @@ class User(Resource):
 
         return NOT_FOUND_ERROR
 
-# Recurso para login do usuário
 
-
-parser_login = reqparse.RequestParser()  # usando flask-restx
+parser_login = reqparse.RequestParser()
 parser_login.add_argument('email', type=str, required=True,
                           help='Deve informar o email', location='json')
 parser_login.add_argument('senha', type=str, required=True,
@@ -234,18 +235,20 @@ parser_login.add_argument('senha', type=str, required=True,
 
 
 @user_ns.doc('Login do usuário a partir do e-mail e senha', parser=parser_login)
-@user_ns.expect(parser_login)
 @auth_ns.route('/login', endpoint='login')
 class Login(Resource):
+    '''
+    Recurso para login do usuário
+    '''
 
     @auth_ns.doc('Recurso para login do usuário')
     def post(self):
         '''
-        requisição post
-        solicita o login de um usuário
-        a requisição deve incluir os dados de login do usuário em formato "FORM SUBMIT"
-        em caso de sucesso ocorre redirecionamento para página profile
-        em caso de falha retorna mensagem de erro e redireciona para página de login
+            requisição post
+            solicita o login de um usuário
+            a requisição deve incluir os dados de login do usuário em formato "FORM SUBMIT"
+            em caso de sucesso ocorre redirecionamento para página profile
+            em caso de falha retorna mensagem de erro e redireciona para página de login
         '''
         # coleta os dados da requisição
         args = parser_login.parse_args()

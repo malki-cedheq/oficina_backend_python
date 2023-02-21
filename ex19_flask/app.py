@@ -8,7 +8,6 @@ Atualizado em: 19/02/2023
 from flask import Flask
 from variables import Variables
 from flask_login import LoginManager
-from flask_bootstrap import Bootstrap5
 from werkzeug.exceptions import InternalServerError, NotFound, MethodNotAllowed, BadRequest
 from werkzeug.middleware.proxy_fix import ProxyFix
 from sqlalchemy.exc import SQLAlchemyError

@@ -34,6 +34,6 @@ docker build --tag ex18_flask-docker .
 ### criando e executando o container
 
 ```
-docker create --name ex18_flask-container -p 8081:8081 ex18_flask-docker
-docker start -i ex18_flask-container
+docker create --name ex19_flask-container -p 8081:8081 ex19_flask-docker
+docker start -i ex19_flask-container
 ```

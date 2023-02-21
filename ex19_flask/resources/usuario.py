@@ -6,7 +6,7 @@ Criado em: 25/08/2022
 Atualizado em: 19/02/2022
 '''
 from flask import Blueprint, flash, request
-from flask_restx import Api, Resource, reqparse
+from flask_restx import Api, Resource, reqparse, Namespace
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from hmac import compare_digest
@@ -17,20 +17,25 @@ from schemas.usuario import usuario_schema, usuarios_schema
 from services.usuario import Usuario as UsuarioService
 from security import privilege_required
 
-user_bp = Blueprint('user_bp', __name__, url_prefix='/api')
-user_api = Api(user_bp,  doc='/doc', version='1.0',
-               title='Usuários API', description='Gerenciamento de Usuários')
-user_ns = user_api.namespace(
-    'User NS', path='/op', description='Operações com recurso usuario')
+#user_bp = Blueprint('user_bp', __name__, url_prefix='/api')
+#user_api = Api(user_bp,  doc='/doc', version='1.0',title='Usuários API', description='Gerenciamento de Usuários')
+#ns_user = user_api.namespace('User NS', path='/op', description='Operações com recurso usuario')
 
-auth_ns = user_api.namespace(
-    'Auth NS', path='/ctrl', description='Operações com recurso auth')
+#ns_auth = user_api.namespace('Auth NS', path='/ctrl', description='Operações com recurso auth')
+
+ns_user = Namespace(
+    'User NS', description='Operações com recurso usuario')
+
+ns_auth = Namespace(
+    'Auth NS', description='Operações com recurso auth')
 
 
-@user_ns.route('/usuarios', endpoint='user_list')
+@ns_user.route('/usuarios', endpoint='user_list')
 class UserList(Resource):
-
-    @user_ns.doc('Recupera todos os usuários cadastrados')
+    '''
+        Recurso que lista todos os registros disponíveis
+    '''
+    @ns_user.doc('Recupera todos os usuários cadastrados')
     @login_required
     def get(self):
         '''
@@ -59,8 +64,8 @@ parser_user_register.add_argument('nivel_acesso', type=int, required=True,
                                   help='Deve informar o nivel_acesso', location='json')
 
 
-@user_ns.route('/usuario', endpoint='user_register')
-@user_ns.doc(responses={
+@ns_user.route('/usuario', endpoint='user_register')
+@ns_user.doc(responses={
     201: 'Created',
     400: 'Validation Error',
     403: 'Not Authorized',
@@ -72,7 +77,7 @@ class UserRegister(Resource):
         Recurso para a criação de novos registros
     '''
 
-    @user_ns.doc('Cadastra um novo usuário', parser=parser_user_register)
+    @ns_user.doc('Cadastra um novo usuário', parser=parser_user_register)
     # @login_required
     # @privilege_required(acess_level=0)
     def post(self):
@@ -136,9 +141,9 @@ parser_user.add_argument('ativo', type=bool, required=False,
                          help='Deve informar o email', location='json')
 
 
-@user_ns.route('/usuario/<int:id_usuario>', endpoint='user_ops')
-@user_ns.param('id_usuario', 'Identificador do usuário')
-@user_ns.doc(responses={
+@ns_user.route('/usuario/<int:id_usuario>', endpoint='user_ops')
+@ns_user.param('id_usuario', 'Identificador do usuário')
+@ns_user.doc(responses={
     200: 'Success',
     400: 'Validation Error',
     403: 'Not Authorized',
@@ -150,8 +155,8 @@ class User(Resource):
     Recursos para recuperação, atualização e exclusão de registros a partir do id
     '''
 
-    @user_ns.doc('Recupera usuário através do id_usuario')
-    @user_ns.expect('id_usuario')
+    @ns_user.doc('Recupera usuário através do id_usuario')
+    @ns_user.expect('id_usuario')
     @login_required
     def get(self, id_usuario: int):
         '''
@@ -167,8 +172,8 @@ class User(Resource):
         return UNAUTHORIZED
 
     # coleta os dados da requisição
-    @user_ns.doc('Modifica um usuário através do id_usuario', parser=parser_user)
-    @user_ns.expect('id_usuario')
+    @ns_user.doc('Modifica um usuário através do id_usuario', parser=parser_user)
+    @ns_user.expect('id_usuario')
     @login_required
     @privilege_required(acess_level=0)
     def put(self, id_usuario: int):
@@ -204,8 +209,8 @@ class User(Resource):
 
         return NOT_FOUND_ERROR
 
-    @user_ns.doc('Remove um usuário através do id_usuario')
-    @user_ns.expect('id_usuario')
+    @ns_user.doc('Remove um usuário através do id_usuario')
+    @ns_user.expect('id_usuario')
     @login_required
     @privilege_required(acess_level=0)
     def delete(self, id_usuario: int):
@@ -234,14 +239,14 @@ parser_login.add_argument('senha', type=str, required=True,
                           help='Deve informar o senha', location='json')
 
 
-@user_ns.doc('Login do usuário a partir do e-mail e senha', parser=parser_login)
-@auth_ns.route('/login', endpoint='login')
+@ns_user.doc('Login do usuário a partir do e-mail e senha', parser=parser_login)
+@ns_auth.route('/login', endpoint='login')
 class Login(Resource):
     '''
     Recurso para login do usuário
     '''
 
-    @auth_ns.doc('Recurso para login do usuário')
+    @ns_auth.doc('Recurso para login do usuário')
     def post(self):
         '''
             requisição post
@@ -271,10 +276,10 @@ class Login(Resource):
 # Recurso de logout do usuário
 
 
-@auth_ns.route('/logout', endpoint='logout')
+@ns_auth.route('/logout', endpoint='logout')
 class Logout(Resource):
 
-    @auth_ns.doc('Recurso de logout do usuário')
+    @ns_auth.doc('Recurso de logout do usuário')
     @login_required
     def get(self):
         '''

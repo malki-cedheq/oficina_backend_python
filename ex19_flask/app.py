@@ -1,6 +1,7 @@
 '''
 Arquivo: app.py
-Descrição: API REST
+Descrição: API REST  com Flask-restx
+            registrando API com Blueprints
 Autores: Malki-çedheq Benjamim,
 Criado em: 27/07/2022
 Atualizado em: 19/02/2023
@@ -14,7 +15,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from sqlalchemy.exc import SQLAlchemyError
 from marshmallow import ValidationError
 from db import initialize_db
-from resources.usuario import user_bp as UsuarioResource
+from resources import user_bp as user_blueprint
 from services.usuario import Usuario as UsuarioService
 
 
@@ -38,7 +39,7 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 initialize_db(app)
 
 # Registro de rotas
-app.register_blueprint(UsuarioResource)
+app.register_blueprint(user_blueprint)
 
 
 # Gerenciamento de erros

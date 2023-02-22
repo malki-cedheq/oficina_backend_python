@@ -15,13 +15,3 @@ class Temperatura():
         self.timestamp = timestamp
         self.n_pacote = n_pacote
         self.temperatura = temperatura
-
-    def to_json(self):  # converte o documento em JSON
-        return {
-            "id_paciente":  self.id_paciente,
-            "id_sessao":    self.id_sessao,
-            "id_exercicio": self.id_exercicio,
-            "timestamp":    self.timestamp,
-            "n_pacote":     self.n_pacote,
-            "temperatura":  self.temperatura
-        }

@@ -29,4 +29,6 @@ class Variables(object):
     MGDB_PASS = os.environ.get('MONGO_PASS')
     MGDB_HOST = os.environ.get('MONGO_HOST')
     MGDB_PORT = int(os.environ.get('MONGO_PORT'))
-    MGDB_URI = f'mongodb://{MGDB_HOST}:{MGDB_PORT}/{MGDB_DATABASE}?authSource=admin'
+
+    # não autoriza conexão com mongo caso utilizando mongo em docker, funciona apenas com mongo standalone
+    MGDB_URI = f'mongodb://{MGDB_OWNER}:{MGDB_PASS}@{MGDB_HOST}:{MGDB_PORT}/{MGDB_DATABASE}?authSource=admin'

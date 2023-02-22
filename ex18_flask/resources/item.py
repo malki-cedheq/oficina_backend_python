@@ -15,8 +15,8 @@ api = Namespace('items', description='Items operations')
 })
 class ItemResource(Resource):
     parser = reqparse.RequestParser()
-    parser.add_argument('item_id', type=int, required=True,
-                        help='Deve informar o item_id')
+    '''parser.add_argument('item_id', type=int, required=True,
+                        help='Deve informar o item_id')'''
 
     @api.doc('read por item_id', parser=parser)
     def get(self, item_id):

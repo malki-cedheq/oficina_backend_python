@@ -18,3 +18,4 @@ VALUES (
         true
     );
 END;
+COMMIT;

@@ -290,4 +290,4 @@ class Logout(Resource):
         '''
         if logout_user():
             return {"isLogged": "false"}, 200
-        return {"isLogged": "false"}, 200
+        return {"isLogged": "true"}, 200

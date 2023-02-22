@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "ex20_flask"
+version = "0.1.0"
+description = ""
+authors = ["malki-cedheq <malkicedheq@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-dotenv = "0.21.1"
+flask = "2.2.3"
+flask-restx = "1.0.6"
+flask-sqlalchemy = "3.0.3"
+psycopg2-binary = "2.9.5"
+flask-marshmallow = "0.14.0"
+marshmallow-sqlalchemy = "0.28.1"
+flask-migrate = "4.0.4"
+yagmail = "0.15.293"
+Flask-Login = "0.6.2"
+Flask-PyMongo = "*"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

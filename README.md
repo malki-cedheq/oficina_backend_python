@@ -79,13 +79,8 @@
    19. [ex19 - Interagindo com DB SQL](#ex19)
        1. [flask](#ex19_flask)
        2. [fastapi](#ex19_fastapi)
-6. [Exemplos em construção](#exemplos)
-   20. [ex20 - Interagindo com DB NoSQL](#ex20)
-       1. [flask](#ex20_flask)
-       2. [fastapi](#ex20_fastapi)
-   21. [ex21 - Padrão de Serviço](#ex21)
-       1. [flask](#ex21_flask)
-       2. [fastapi](#ex21_fastapi)
+
+6. [Exemplos em construção](#exemplos) 20. [ex20 - Interagindo com DB NoSQL](#ex20) 1. [flask](#ex20_flask) 2. [fastapi](#ex20_fastapi) 21. [ex21 - Padrão de Serviço](#ex21) 1. [flask](#ex21_flask) 2. [fastapi](#ex21_fastapi)
 
 ## Introdução <a name="introducao"></a>
 
@@ -294,36 +289,8 @@ Interação com banco de dados relacional PostgreSQL através do SQLAlchemy
 
 ### ex20 - Interagindo com DB NoSQL <a name="ex20"></a>
 
-Interação com banco de dados não relacional MondoDB através do SQLAlchemy
+Interação com banco de dados não relacional MondoDB através do PyMongo
 
 #### ex20_flask <a name="ex20_flask"></a>
 
 #### ex20_fastapi <a name="ex20_fastapi"></a>
-
-### ex21 - Padrão de Serviço <a name="ex21"></a>
-
-Aplicando o Service Pattern na API.
-Exemplo de um aquisição de temperatura corporal.
-Onde cada sensor é exclusivo a um voluntário.
-
-Models:
-temperatura (MongoDB)
-sensor_id: int
-voluntario_id: int
-timestamp: datetime
-n_pacote: int
-temperatura: Array(int)
-voluntario(postgreSQL)
-voluntario_id: int
-nome: str
-cpf: str
-idade: str
-email: str
-sensor (postgreSQL)
-sensor_id: int
-nome: str
-(FK) voluntario_id: int
-
-#### ex21_flask <a name="ex21_flask"></a>
-
-#### ex21_fastapi <a name="ex21_fastapi"></a>

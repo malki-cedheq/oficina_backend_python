@@ -1,6 +1,11 @@
 # app.py
 '''
-Documentação
+Arquivo: app.py
+Descrição: API REST  com Flask-restx
+            registrando API com api.init_app
+Autores: Malki-çedheq Benjamim,
+Criado em: 27/07/2022
+Atualizado em: 19/02/2023
 '''
 from flask import Flask
 

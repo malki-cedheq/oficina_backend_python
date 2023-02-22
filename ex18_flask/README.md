@@ -1,4 +1,4 @@
-# READMME.md
+# README.md
 
 ## Requisitos
 
@@ -28,12 +28,12 @@ cada bind indica o endereço de exposição do serviço
 ### construindo a imagem docker
 
 ```
-docker build --tag ex17_flask-docker .
+docker build --tag ex18_flask-docker .
 ```
 
 ### criando e executando o container
 
 ```
-docker create --name ex17_flask-container -p 8081:8081 ex17_flask-docker
-docker start -i ex17_flask-container
+docker create --name ex18_flask-container -p 8081:8081 ex18_flask-docker
+docker start -i ex18_flask-container
 ```

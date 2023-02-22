@@ -104,22 +104,6 @@ tests = ["attrs[tests-no-zope]", "zope.interface"]
 tests-no-zope = ["cloudpickle", "cloudpickle", "hypothesis", "hypothesis", "mypy (>=0.971,<0.990)", "mypy (>=0.971,<0.990)", "pympler", "pympler", "pytest (>=4.3.0)", "pytest (>=4.3.0)", "pytest-mypy-plugins", "pytest-mypy-plugins", "pytest-xdist[psutil]", "pytest-xdist[psutil]"]
 
 [[package]]
-name = "bootstrap-flask"
-version = "2.1.0"
-description = "Bootstrap 4 & 5 helper for your Flask projects."
-category = "main"
-optional = false
-python-versions = "*"
-files = [
-    {file = "Bootstrap-Flask-2.1.0.tar.gz", hash = "sha256:dc4f9c463727f3a59a6bfb17b7f9d13fd07646ba852f94285542c6a1e4e457e3"},
-    {file = "Bootstrap_Flask-2.1.0-py2.py3-none-any.whl", hash = "sha256:52e360421aafbf117f59ed8237391b2a4c77592e35ab7b4566d4fde3b277825a"},
-]
-
-[package.dependencies]
-Flask = "*"
-WTForms = "*"
-
-[[package]]
 name = "cachetools"
 version = "5.3.0"
 description = "Extensible memoizing collections and decorators"
@@ -481,6 +465,22 @@ files = [
 [package.dependencies]
 Flask = "*"
 pydantic = ">=1.7"
+
+[[package]]
+name = "flask-pymongo"
+version = "2.3.0"
+description = "PyMongo support for Flask applications"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "Flask-PyMongo-2.3.0.tar.gz", hash = "sha256:620eb02dc8808a5fcb90f26cab6cba9d6bf497b15032ae3ca99df80366e33314"},
+    {file = "Flask_PyMongo-2.3.0-py2.py3-none-any.whl", hash = "sha256:8a9577a2c6d00b49f21cb5a5a8d72561730364a2d745551a85349ab02f86fc73"},
+]
+
+[package.dependencies]
+Flask = ">=0.11"
+PyMongo = ">=3.3"
 
 [[package]]
 name = "flask-restx"
@@ -1391,14 +1391,14 @@ idna2008 = ["idna"]
 
 [[package]]
 name = "setuptools"
-version = "67.3.2"
+version = "67.4.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "setuptools-67.3.2-py3-none-any.whl", hash = "sha256:bb6d8e508de562768f2027902929f8523932fcd1fb784e6d573d2cafac995a48"},
-    {file = "setuptools-67.3.2.tar.gz", hash = "sha256:95f00380ef2ffa41d9bba85d95b27689d923c93dfbafed4aecd7cf988a25e012"},
+    {file = "setuptools-67.4.0-py3-none-any.whl", hash = "sha256:f106dee1b506dee5102cc3f3e9e68137bbad6d47b616be7991714b0c62204251"},
+    {file = "setuptools-67.4.0.tar.gz", hash = "sha256:e5fd0a713141a4a105412233c63dc4e17ba0090c8e8334594ac790ec97792330"},
 ]
 
 [package.extras]
@@ -1605,24 +1605,6 @@ MarkupSafe = ">=2.1.1"
 watchdog = ["watchdog"]
 
 [[package]]
-name = "wtforms"
-version = "3.0.1"
-description = "Form validation and rendering for Python web development."
-category = "main"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "WTForms-3.0.1-py3-none-any.whl", hash = "sha256:837f2f0e0ca79481b92884962b914eba4e72b7a2daaf1f939c890ed0124b834b"},
-    {file = "WTForms-3.0.1.tar.gz", hash = "sha256:6b351bbb12dd58af57ffef05bc78425d08d1914e0fd68ee14143b7ade023c5bc"},
-]
-
-[package.dependencies]
-MarkupSafe = "*"
-
-[package.extras]
-email = ["email-validator"]
-
-[[package]]
 name = "yagmail"
 version = "0.15.293"
 description = "Yet Another GMAIL client"
@@ -1644,4 +1626,4 @@ dkim = ["dkimpy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "a9f2af324efbf6428d2e025bd936d2dc24b4c4aeeabe43990ecb56dd0856ef5d"
+content-hash = "f06775b4edd4681e44fa314593f5446e47cb4e35999c0208b329655fdfbad51e"

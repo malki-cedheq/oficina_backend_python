@@ -5,8 +5,8 @@ from flask_restx import Api, apidoc
 
 from .usuario import ns_auth, ns_user
 
-user_bp = Blueprint('user_bp', __name__, url_prefix='/api')
-api = Api(user_bp, title='API Restful', version='1.0',
+bp = Blueprint('bp', __name__, url_prefix='/api')
+api = Api(bp, title='API Restful', version='1.0',
           description='API Restful com flask-restx', doc='/doc')
 
 

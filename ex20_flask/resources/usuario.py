@@ -5,17 +5,25 @@ Autores: Malki-çedheq Benjamim,
 Criado em: 25/08/2022
 Atualizado em: 19/02/2022
 '''
-from flask import Blueprint, flash, request
-from flask_restx import Api, Resource, reqparse, Namespace
+from hmac import compare_digest
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from hmac import compare_digest
-from werkzeug.exceptions import InternalServerError
-from marshmallow import ValidationError
+#from flask import Blueprint
+#from flask_restx import Api
+from flask import flash, request
+from flask_restx import Resource, reqparse, Namespace
+
+from error_handler import ValidationError, InternalServerError
 from constants import NOT_FOUND_ERROR, INTERNAL_SERVER_ERROR, UNAUTHORIZED
 from schemas.usuario import usuario_schema, usuarios_schema
 from services.usuario import Usuario as UsuarioService
 from security import privilege_required
+
+#user_bp = Blueprint('user_bp', __name__, url_prefix='/api')
+#user_api = Api(user_bp,  doc='/doc', version='1.0',title='Usuários API', description='Gerenciamento de Usuários')
+#ns_user = user_api.namespace('User NS', path='/op', description='Operações com recurso usuario')
+
+#ns_auth = user_api.namespace('Auth NS', path='/ctrl', description='Operações com recurso auth')
 
 ns_user = Namespace(
     'User NS', description='Operações com recurso usuario')
@@ -24,6 +32,13 @@ ns_auth = Namespace(
     'Auth NS', description='Operações com recurso auth')
 
 
+@ns_user.doc(responses={
+    200: 'Success',
+    400: 'Validation Error',
+    403: 'Not Authorized',
+    404: 'Not Found',
+    500: 'Internal Server Error'
+})
 @ns_user.route('/usuarios', endpoint='user_list')
 class UserList(Resource):
     '''
@@ -31,6 +46,7 @@ class UserList(Resource):
     '''
     @ns_user.doc('Recupera todos os usuários cadastrados')
     @login_required
+    @privilege_required(acess_level=0)
     def get(self):
         '''
         requisição get
@@ -284,4 +300,4 @@ class Logout(Resource):
         '''
         if logout_user():
             return {"isLogged": "false"}, 200
-        return {"isLogged": "false"}, 200
+        return {"isLogged": "true"}, 200

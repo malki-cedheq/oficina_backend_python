@@ -7,14 +7,14 @@ Criado em: 27/07/2022
 Atualizado em: 19/02/2023
 '''
 import uuid
+
 from flask import Flask
-from variables import Variables
 from flask_login import LoginManager
-from werkzeug.exceptions import InternalServerError, NotFound, MethodNotAllowed, BadRequest
 from werkzeug.middleware.proxy_fix import ProxyFix
-from sqlalchemy.exc import SQLAlchemyError
-from marshmallow import ValidationError
+
+from variables import Variables
 from db import initialize_db
+from error_handler import initialize_error_handler
 from resources import bp as blueprint
 from services.usuario import Usuario as UsuarioService
 
@@ -25,7 +25,6 @@ app = Flask(__name__)
 app.config.from_object(Variables)
 app.config['SQLALCHEMY_DATABASE_URI'] = app.config['APP_URI']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config["MONGO_URI"] = app.config['MGDB_URI']
 app.config['SECRET_KEY'] = str(uuid.uuid4())
 # propaga erros de dependências para a aplicação
 app.config['PROPAGATE_EXCEPTIONS'] = True
@@ -44,37 +43,10 @@ app.register_blueprint(blueprint)
 
 
 # Gerenciamento de erros
-@app.errorhandler(ValidationError)
-def validation_error(err):
-    return {"error": f"{err.messages}"}, 400
+initialize_error_handler(app)
 
 
-@app.errorhandler(BadRequest)
-def bad_request_error(err):
-    return {"error": f"{err}"}, 400
-
-
-@app.errorhandler(NotFound)
-def not_found_error(err):
-    return {"error": f"{err}"}, 404
-
-
-@app.errorhandler(MethodNotAllowed)
-def method_not_allowed_error(err):
-    return {"error": f"{err}"}, 405
-
-
-@app.errorhandler(SQLAlchemyError)
-def database_error(err):
-    return {"error": f"{err}"}, 500
-
-
-@app.errorhandler(InternalServerError)
-def internal_server_error(err):
-    return {"error": f"{err}"}, 500
-
-
-# gerenciamento de login
+# Gerenciamento de login
 login_manager = LoginManager()
 login_manager.init_app(app)
 

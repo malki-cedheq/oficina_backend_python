@@ -10,11 +10,18 @@ poetry
 Criar arquivo .env:
 
 ```
-DB_OWNER = 'usuario'
+DB_OWNER = 'usuario' # postgresql
 DB_PASS = 'senha'
 DB_HOST = '0.0.0.0'
-DB_PORT= '5432'
+DB_PORT = '5432'
 DB_DATABASE = 'oficina_backend'
+
+MONGO_OWNER = 'usuario' # mongodb
+MONGO_PASS = 'senha'
+MONGO_HOST = '0.0.0.0'
+MONGO_PORT = '27017'
+MONGO_DATABASE = 'oficina_backend'
+
 APP_HOST = '0.0.0.0'
 APP_PORT = '8081'
 APP_MODE = 'dev' #dev (desenvolvimento)/ #prod (producao)

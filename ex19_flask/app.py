@@ -7,31 +7,31 @@ Criado em: 27/07/2022
 Atualizado em: 19/02/2023
 '''
 import uuid
+
 from flask import Flask
-from variables import Variables
 from flask_login import LoginManager
-from werkzeug.exceptions import InternalServerError, NotFound, MethodNotAllowed, BadRequest
 from werkzeug.middleware.proxy_fix import ProxyFix
-from sqlalchemy.exc import SQLAlchemyError
-from marshmallow import ValidationError
+
+from variables import Variables
 from db import initialize_db
-from resources import user_bp as user_blueprint
+from error_handler import initialize_error_handler
+from resources import bp as blueprint
 from services.usuario import Usuario as UsuarioService
 
-
-# Configuração da aplicação
+# Instância da aplicação
 app = Flask(__name__)
 
+# Configuração da aplicação
 app.config.from_object(Variables)
+# O URI do banco de dados que deve ser usado para a conexão
 app.config['SQLALCHEMY_DATABASE_URI'] = app.config['APP_URI']
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = str(uuid.uuid4())
+app.config['SECRET_KEY'] = str(uuid.uuid4())  # gera um uuuid aleatório
 # propaga erros de dependências para a aplicação
 app.config['PROPAGATE_EXCEPTIONS'] = True
 # desabilita auto ordenação das respostas JSON
 app.config['JSON_SORT_KEYS'] = False
-# habilita documentação
-app.config.SWAGGER_SUPPORTED_SUBMIT_METHODS = ["get", "post", "put", "delete"]
+app.config.SWAGGER_SUPPORTED_SUBMIT_METHODS = [
+    "get", "post", "put", "delete"]  # habilita documentação
 
 app.wsgi_app = ProxyFix(app.wsgi_app)
 
@@ -39,41 +39,12 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 initialize_db(app)
 
 # Registro de rotas
-app.register_blueprint(user_blueprint)
-
+app.register_blueprint(blueprint)
 
 # Gerenciamento de erros
-@app.errorhandler(ValidationError)
-def validation_error(err):
-    return {"error": f"{err.messages}"}, 400
+initialize_error_handler(app)
 
-
-@app.errorhandler(BadRequest)
-def bad_request_error(err):
-    return {"error": f"{err}"}, 400
-
-
-@app.errorhandler(NotFound)
-def not_found_error(err):
-    return {"error": f"{err}"}, 404
-
-
-@app.errorhandler(MethodNotAllowed)
-def method_not_allowed_error(err):
-    return {"error": f"{err}"}, 405
-
-
-@app.errorhandler(SQLAlchemyError)
-def database_error(err):
-    return {"error": f"{err}"}, 500
-
-
-@app.errorhandler(InternalServerError)
-def internal_server_error(err):
-    return {"error": f"{err}"}, 500
-
-
-# gerenciamento de login
+# Gerenciamento de login
 login_manager = LoginManager()
 login_manager.init_app(app)
 

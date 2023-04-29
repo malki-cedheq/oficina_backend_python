@@ -45,8 +45,8 @@ class UserList(Resource):
         Recurso que lista todos os registros disponíveis
     '''
     @ns_user.doc('Recupera todos os usuários cadastrados')
-    @login_required
-    @privilege_required(acess_level=0)
+    #@login_required
+    #@privilege_required(acess_level=0)
     def get(self):
         '''
         requisição get
@@ -130,9 +130,9 @@ class UserRegister(Resource):
                 usuario_valido.senha, method='sha256')
             UsuarioService.save_to_db(usuario_valido)
 
-            link = "https://www.google.com.br"  # aqui deve constar o link da plataforma
-            conteudo = f'<h2>Você foi registrado no sistema.</h2><p>Acesse <a href="{link}">este link</a> para ser redirecionado.</p>'
-            UsuarioService.send_email(usuario_valido, contents=conteudo)
+            #link = "https://www.google.com.br"  # aqui deve constar o link da plataforma
+            #conteudo = f'<h2>Você foi registrado no sistema.</h2><p>Acesse <a href="{link}">este link</a> para ser redirecionado.</p>'
+            #UsuarioService.send_email(usuario_valido, contents=conteudo)
             return usuario_schema.dump(usuario_valido), 201
         except InternalServerError:
             return INTERNAL_SERVER_ERROR

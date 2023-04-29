@@ -19,8 +19,8 @@ class Usuario(ma.SQLAlchemyAutoSchema):  # Schema / SQLAlchemyAutoSchema
     # implementação de HATEOAS
     _links = ma.Hyperlinks(
         {
-            "self": ma.URLFor("user_bp.user_ops", id_usuario="<id_usuario>"),
-            "collection": ma.URLFor("user_bp.user_list"),
+            "self": ma.URLFor("bp.user_ops", id_usuario="<id_usuario>"),
+            "collection": ma.URLFor("bp.user_list"),
         }
     )
 

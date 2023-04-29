@@ -41,6 +41,6 @@ def preload_data():
 
 
 def populate_usuarios():
-    file = open('./ex19_flask/sql/QUERY_usuarios_insert.sql', encoding="utf-8")
+    file = open('./sql/QUERY_usuarios_insert.sql', encoding="utf-8")
     query = text(file.read())
     db.session.execute(query)

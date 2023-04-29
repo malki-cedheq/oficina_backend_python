@@ -17,6 +17,7 @@ marshmallow-sqlalchemy = "0.28.1"
 flask-migrate = "4.0.4"
 yagmail = "0.15.293"
 Flask-Login = "0.6.2"
+Flask-Cors = "3.0.10"
 
 
 [build-system]

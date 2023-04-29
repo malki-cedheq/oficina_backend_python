@@ -12,6 +12,8 @@ from flask import Flask
 from flask_login import LoginManager
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+from flask_cors import CORS #cors
+
 from variables import Variables
 from db import initialize_db
 from error_handler import initialize_error_handler
@@ -20,6 +22,7 @@ from services.usuario import Usuario as UsuarioService
 
 # Instância da aplicação
 app = Flask(__name__)
+CORS(app) #cors
 
 # Configuração da aplicação
 app.config.from_object(Variables)

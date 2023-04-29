@@ -23,6 +23,7 @@ from services.usuario import Usuario as UsuarioService
 app = Flask(__name__)
 
 app.config.from_object(Variables)
+app.config['MONGO_URI'] = app.config['MGDB_URI']
 app.config['SQLALCHEMY_DATABASE_URI'] = app.config['APP_URI']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = str(uuid.uuid4())

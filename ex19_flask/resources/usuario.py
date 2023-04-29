@@ -173,13 +173,23 @@ class User(Resource):
         requisição get
         retorna o registro de um usuario espeficidado pelo id_usuario
         '''
-        if (current_user.id_usuario == id_usuario or current_user.nivel_acesso == 0):
+        # respeitando as credenciais logadas
+        # if (current_user.id_usuario == id_usuario or current_user.nivel_acesso == 0):
+        #     usuario = UsuarioService.find_by_id(id_usuario)
+        #     if usuario:
+        #         return usuario_schema.dump(usuario), 200
+
+        #     return NOT_FOUND_ERROR
+        # return UNAUTHORIZED
+
+        #sem verificação de credenciais
+        try:
             usuario = UsuarioService.find_by_id(id_usuario)
             if usuario:
                 return usuario_schema.dump(usuario), 200
-
             return NOT_FOUND_ERROR
-        return UNAUTHORIZED
+        except(e):
+            return INTERNAL_SERVER_ERROR
 
     # coleta os dados da requisição
     @ns_user.doc('Modifica um usuário através do id_usuario', parser=parser_user)

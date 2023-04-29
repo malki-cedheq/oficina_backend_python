@@ -1,4 +1,3 @@
-#syntax=dockerdockerfile:1
 FROM python:3.10-slim-buster
 WORKDIR /ex18_flask-docker
 

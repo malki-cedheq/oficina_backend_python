@@ -39,9 +39,9 @@ class ItemListResource(Resource):
     500: 'Internal Server Error'
 })
 class ItemResource(Resource):
-    '''
-    Recursos para recuperação, atualização e exclusão de registros a partir do id
-    '''
+    parser = reqparse.RequestParser()
+    parser.add_argument('item_id', type=int, required=True,
+                        help='Deve informar o item_id')
 
     @ns_item.doc('read por item_id')
     def get(self, item_id):

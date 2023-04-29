@@ -25,8 +25,8 @@ def envia_email(to: list = [],
         attachments: list = [lista de anexos ao email]
     '''
     try:
-        yag = yagmail.SMTP(user="doctorstrange1987@gmail.com",
-                           oauth2_file="./ex19_flask/libs/oauth2_creds_doctorstrange.json"
+        yag = yagmail.SMTP(user="jairo.marques1309@gmail.com",
+                           oauth2_file="./ex19_flask/libs/ouath2_creds_jairomarques"
                            )
         yag.send(to=to,
                  cc=cc,

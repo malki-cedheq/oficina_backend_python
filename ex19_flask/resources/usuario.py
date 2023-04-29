@@ -167,7 +167,7 @@ class User(Resource):
 
     @ns_user.doc('Recupera usuário através do id_usuario')
     @ns_user.expect('id_usuario')
-    @login_required
+    #@login_required
     def get(self, id_usuario: int):
         '''
         requisição get
@@ -184,8 +184,8 @@ class User(Resource):
     # coleta os dados da requisição
     @ns_user.doc('Modifica um usuário através do id_usuario', parser=parser_user)
     @ns_user.expect('id_usuario')
-    @login_required
-    @privilege_required(acess_level=0)
+    #@login_required
+    #@privilege_required(acess_level=0)
     def put(self, id_usuario: int):
         '''
         requisição put
@@ -221,8 +221,8 @@ class User(Resource):
 
     @ns_user.doc('Remove um usuário através do id_usuario')
     @ns_user.expect('id_usuario')
-    @login_required
-    @privilege_required(acess_level=0)
+    #@login_required
+    #@privilege_required(acess_level=0)
     def delete(self, id_usuario: int):
         '''
         requisição delete
